@@ -39,6 +39,10 @@ hbs.registerHelper('screamIt', (text) => {
   return text.toUpperCase();
 });
 
+hbs.registerHelper('capitalizeIt', (text) => {
+  return text.toLowerCase();
+});
+
 app.get('/', (req, res) => {
   // res.send('Hello there!');
   res.render('home.hbs', {
@@ -55,6 +59,13 @@ app.get('/about', (req, res) => {
 
 app.get('/bad', (req, res) => {
   res.send({errorMessage: 'Page was not found!'});
+});
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects',
+    projectHeader: 'my porfolio'
+  });
 });
 
 app.listen(port, () => {
